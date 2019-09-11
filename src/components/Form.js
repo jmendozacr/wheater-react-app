@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Form() {
+function Form({ requestData }) {
+
+    // state of component
+    // search = state, saveSearch = this.setState on class component
+    const [search, setSearch] = useState({
+        city: "",
+        country: ""
+    })
 
     const handleChange = e => {
-        // console.log(e.target);
+
+        // change state
+        setSearch({
+            ...search,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    const requestWheater = (e) => {
+        e.preventDefault();
+
+        requestData(search);
     }
     
     return(
-        <form>
+        <form onSubmit={requestWheater}>
             <div className="input-field col s12">
                 <input
                     type="text"
