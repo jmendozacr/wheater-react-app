@@ -3,14 +3,13 @@ import React, { useState } from 'react';
 function Form({ requestData }) {
 
     // state of component
-    // search = state, saveSearch = this.setState on class component
+    // search = state, setSearch = this.setState on class component
     const [search, setSearch] = useState({
         city: "",
         country: ""
     })
 
     const handleChange = e => {
-
         // change state
         setSearch({
             ...search,
